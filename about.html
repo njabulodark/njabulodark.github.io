@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Website Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="nav">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nave-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="">PROGRAMS</a></li>
+                    <li><a href="gallery.html">GALLARY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+<!---------------- header ---------------------->
+<section class="about-header">
+    <h1>About Us</h1>
+</section>
+
+<!-------------About------------------------------>
+<section class="about">
+    <h1>Entokozweni Day Care Centre</h1>
+    <p>Established in 1989 and still going strong. We are a well established, safe and secure country Crèche/Nursery School.
+        Run by the owner Lorraine Reiser, also known as Lulu and backed by extremely supportive and caring staff members, who are always prepared to go that extra mile to make all the children and parents happy
+    </p>
+    <p>
+        The University has 7 faculties and a college viz., Education, Law, Humanities, Art, Design and Architecture, Health Sciences, Science, Engineering and the Built Environment as well as the College of Business and Economics, housing the newly established Johannesburg Business School.
+    </p>
+
+    <h1>Our Motto</h1>
+    <p>
+        “We guarantee happiness, love and attention at all times. We’re like a happy family and provide a home away from home.” Entokozweni Care Centre
+    </p>
+            
+</section>
+<!----------------background---------------------->
+
+<section class="background">
+</section>
+
+<!--------------footer ----------------->
+<footer class="footer">
+    <div class="row">
+        <span ><img src="images/logo.png"></span>
+        <div class="footer-col">
+            <h2>Find Us</h2>
+            <ul>
+                <li> Ethandakukhanya <br>
+                 2380 <br>
+                 Piet Retief</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h2>Contact Us</h2>
+            <ul>
+                <li> Call<strong>:</strong> <br>
+                 000000000000 <br>
+                 Email<br>
+                 0000000@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!--------------JavaScript for Toogle Menu-------------->
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navLinks.style.right = "-300px";
+        }
+    </script>
+</body>
+
+</html>

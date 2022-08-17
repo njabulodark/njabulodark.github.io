@@ -1,0 +1,71 @@
+#main-footer{
+    color: #666;
+    -webkit-text-size-adjust: 100%;
+    background-color: #2ea3f2;
+    height: 25vh;
+    padding: 2% 6%;
+    top: 0;
+    width: 90%;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+
+}
+
+#main-footer{
+    color: #666;
+    -webkit-text-size-adjust: 100%;
+    background-color: #2ea3f2;
+    height: 25vh;
+}
+
+.footer-image img{
+    margin: auto;
+    border-radius: 20px;
+    right: 0;
+}
+
+.footer-widgets{
+    padding-top: 40px;
+    margin: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="main">
+            <h1>Fixed Top Menu</h1>
+            <h2>Scroll this page to see the effect</h2>
+            <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+          
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+            <p>Some text some text some text some text..</p>
+          </div>

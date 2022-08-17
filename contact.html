@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="with=device-width, initial-scale=1.0">
+    <title>Website Tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <section class="nav">
+        <nav>
+            <a href="index.html"><img src="images/logo.png"></a>
+            <div class="nave-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="">PROGRAMS</a></li>
+                    <li><a href="gallery.html">GALLARY</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    </section>
+
+<!---------------- header ---------------------->
+<section class="contact-header">
+    <h1>Contact Us</h1>
+</section>
+
+<!---------------Contact---------------------->
+<section class="Contact" id="first">
+    <div class="row">
+        <div class="contact-col">
+            <h2>Find Us</h2>
+            <p>
+                 Ethandakukhanya <br>
+                    2380 <br>
+                    Piet Retief<br>
+            </p>
+            </div>
+        </contact-col>
+        <div class="contact-col">
+            <h2>Email Address</h2>
+            <p>
+                <i class="fa fa-envelope"></i>
+                    0000000@gmail.com
+            </p>
+        </div>
+        <div class="contact-col">
+            <h2>Contact Number</h2>
+            <p>
+                <i class="fa fa-phone" aria-hidden="true"></i>
+                0000000000
+            </p>
+            </div>
+        </contact-col>
+        <div class="contact-col">
+            <h2>Working Hours</h2>
+            <p>
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                Mon-Friday: 7:00AM – 15:30PM
+            </p>
+    </div>
+</section>
+
+<section class="map">
+    <div class="mapping">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1776.963904770257!2d30.788650300584962!3d-27.032446998504128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x70ad2089e36a3976!2zMjfCsDAxJzU2LjgiUyAzMMKwNDcnMjEuNSJF!5e0!3m2!1sen!2sza!4v1641408650356!5m2!1sen!2sza"  style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+</section>
+
+<!----------------Motto---------------------->
+
+<section class="background">
+</section>
+
+<!--------------footer ----------------->
+<footer class="footer">
+    <div class="row">
+        <span ><img src="images/logo.png"></span>
+        <div class="footer-col">
+            <h2>Find Us</h2>
+            <ul>
+                <li> Ethandakukhanya <br>
+                 2380 <br>
+                 Piet Retief</li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h2>Contact Us</h2>
+            <ul>
+                <li> Call<strong>:</strong> <br>
+                 000000000000 <br>
+                 Email<br>
+                 0000000@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!--------------JavaScript for Toogle Menu-------------->
+    <script>
+
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu(){
+            navLinks.style.right = "0";
+        }
+
+        function hideMenu(){
+            navLinks.style.right = "-300px";
+        }
+    </script>
+</body>
+
+</html>
