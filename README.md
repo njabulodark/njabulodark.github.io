@@ -21,5 +21,3 @@ You can access the website by clicking [here](https://njabulodark.github.io).
 For more information or if you encounter any issues with the website, feel free to contact the repository owner.
 
 ---
-
-**Note:** This is a basic README template. Feel free to modify it according to your project's specific requirements.
