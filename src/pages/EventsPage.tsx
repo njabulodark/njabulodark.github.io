@@ -67,6 +67,8 @@ const EventsPage: React.FC = () => {
             images={[
               '/images/events/matric_dance_2024/IMG-20241123-WA0006-scaled.jpg',
               '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
+              '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
+              '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
               '/images/events/matric_dance_2024/IMG-20241123-WA0023-225x300.jpg'
             ]}
             altTexts={[
@@ -294,8 +296,8 @@ const EventsPage: React.FC = () => {
           <div className="mb-8">
             <h6 className="text-lg font-medium text-[#6e71e4] mb-2">February 14/ 2024 / 10:00 am</h6>
             <h3 className="text-2xl md:text-3xl font-bold text-[#2107c8] mb-8" style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.1)' }}>
-            Valentine's Day Picnic
-          </h3>
+              Valentine's Day Picnic
+            </h3>
           </div>
 
           {/* Main Content - Large Photo Left, Text Right */}

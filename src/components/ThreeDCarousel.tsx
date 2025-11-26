@@ -1,181 +1,237 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 
 interface ThreeDCarouselProps {
-  images: string[];
-  altTexts: string[];
+  images?: string[];
+  altTexts?: string[];
   className?: string;
 }
 
 const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
-  images,
-  altTexts,
+  images = [],
+  altTexts = [],
   className = ''
 }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  // Constants for the infinite loop logic
+  // We clone 3 images at the start and 3 at the end to create the buffer
+  const VISIBLE_ITEMS = 3;
+
+  // State
+  const [currentIndex, setCurrentIndex] = useState(VISIBLE_ITEMS);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [translateX, setTranslateX] = useState(0);
+  const [dragTranslate, setDragTranslate] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+
+  // Refs
   const carouselRef = useRef<HTMLDivElement>(null);
+  // Track if a drag occurred during the interaction to prevent clicks
+  const hasDraggedRef = useRef(false);
+
+  // Create the extended array with clones for infinite looping
+  const { extendedImages, extendedAltTexts } = useMemo(() => {
+    if (!images || images.length === 0) return { extendedImages: [], extendedAltTexts: [] };
+
+    // Create clones: last 3 items -> start, first 3 items -> end
+    const startClones = images.slice(-VISIBLE_ITEMS);
+    const endClones = images.slice(0, VISIBLE_ITEMS);
+
+    const startAltClones = altTexts.slice(-VISIBLE_ITEMS);
+    const endAltClones = altTexts.slice(0, VISIBLE_ITEMS);
+
+    return {
+      extendedImages: [...startClones, ...images, ...endClones],
+      extendedAltTexts: [...startAltClones, ...altTexts, ...endAltClones]
+    };
+  }, [images, altTexts]);
+
+  // Reset index when images change to avoid out of bounds
+  useEffect(() => {
+    if (images.length > 0) {
+      setCurrentIndex(VISIBLE_ITEMS);
+      setIsTransitioning(false);
+    }
+  }, [images.length]);
+
+  // Handle the seamless loop reset when transition ends
+  const handleTransitionEnd = () => {
+    if (!images.length) return;
+
+    const totalReal = images.length;
+
+    // If we've scrolled past the real items to the end clones
+    if (currentIndex >= totalReal + VISIBLE_ITEMS) {
+      setIsTransitioning(false); // Disable transition for instant jump
+      setCurrentIndex(currentIndex - totalReal); // Jump back to the real item
+    }
+    // If we've scrolled past the start to the start clones
+    else if (currentIndex < VISIBLE_ITEMS) {
+      setIsTransitioning(false); // Disable transition for instant jump
+      setCurrentIndex(currentIndex + totalReal); // Jump forward to the real item
+    }
+  };
+
+  // Helper to move slides with transition enabled
+  const moveSlide = (direction: 'next' | 'prev') => {
+    setIsTransitioning(true);
+    setCurrentIndex(prev => direction === 'next' ? prev + 1 : prev - 1);
+  };
 
   // Mouse/touch event handlers for dragging
   const handleDragStart = (e: React.MouseEvent | React.TouchEvent) => {
-    e.preventDefault();
-    setIsDragging(true);
     setIsAutoPlaying(false);
+    setIsDragging(true);
+    hasDraggedRef.current = false; // Reset drag flag
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    setStartX(clientX - translateX);
+    setStartX(clientX);
+    setIsTransitioning(false); // Disable transition while dragging for 1:1 movement
   };
 
   const handleDragMove = (e: React.MouseEvent | React.TouchEvent) => {
     if (!isDragging) return;
     const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
-    setTranslateX(clientX - startX);
+    const diff = clientX - startX;
+    setDragTranslate(diff);
+
+    // If moved significantly, mark as dragged
+    if (Math.abs(diff) > 5) {
+      hasDraggedRef.current = true;
+    }
   };
 
   const handleDragEnd = () => {
     if (!isDragging) return;
     setIsDragging(false);
+    setIsAutoPlaying(true);
 
-    // Determine if we should move to next/previous slide based on drag distance
-    const threshold = window.innerWidth * 0.25; // 25% of screen width
+    const containerWidth = carouselRef.current?.offsetWidth || window.innerWidth;
+    const threshold = containerWidth * 0.1;
 
-    if (Math.abs(translateX) > threshold) {
-      if (translateX > 0) {
-        // Swiped right - go to previous
-        setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
+    if (Math.abs(dragTranslate) > threshold) {
+      setIsTransitioning(true); // Re-enable transition for the snap
+      if (dragTranslate > 0) {
+        // Swiped Right -> Previous
+        setCurrentIndex(prev => prev - 1);
       } else {
-        // Swiped left - go to next
-        setCurrentIndex(prev => (prev + 1) % images.length);
+        // Swiped Left -> Next
+        setCurrentIndex(prev => prev + 1);
       }
     }
 
-    setTranslateX(0); // Reset translate after drag ends
+    setDragTranslate(0);
   };
 
-  // Auto-rotation effect
+  // Auto-play effect
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || images.length === 0 || previewImage) return;
 
     const interval = setInterval(() => {
-      setCurrentIndex(prev => (prev + 1) % images.length);
-    }, 5000); // Rotate every 5 seconds
+      moveSlide('next');
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, images.length]);
+  }, [isAutoPlaying, images.length, previewImage, currentIndex]); // currentIndex dependency ensures loop continues
 
-  // Handle click on dots
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
-
-  // Calculate position for each slide in the 3D carousel
-  const getSlidePosition = (index: number) => {
-    const totalItems = images.length;
-    if (totalItems === 0) return { x: 0, z: 0, opacity: 0, scale: 0 };
-
-    // Calculate the angle for this slide in the 3D circle
-    const angle = (index - currentIndex) * (2 * Math.PI) / totalItems;
-
-    // Calculate the position in 3D space
-    const radius = 300;
-    const x = Math.sin(angle) * radius;
-    const z = Math.cos(angle) * radius;
-
-    // Calculate scale and opacity based on position (closer items appear larger and more opaque)
-    const maxScale = 1;
-    const minScale = 0.7;
-    const maxOpacity = 1;
-    const minOpacity = 0.4;
-
-    const scale = minScale + (maxScale - minScale) * ((z + radius) / (2 * radius));
-    const opacity = minOpacity + (maxOpacity - minOpacity) * ((z + radius) / (2 * radius));
-
-    return { x, z, opacity, scale };
-  };
-
-  // Handle image click to open preview
   const handleImageClick = (image: string) => {
+    // If we dragged during this interaction, don't open preview
+    if (hasDraggedRef.current) return;
     setPreviewImage(image);
   };
 
-  // Close preview
   const closePreview = () => {
     setPreviewImage(null);
   };
 
+  // If no images, render placeholder
+  if (!images || images.length === 0) {
+    return (
+      <div className={`w-full h-96 flex items-center justify-center bg-gray-100 text-gray-400 ${className}`}>
+        No images to display
+      </div>
+    );
+  }
+
   return (
     <>
-      <div className={`relative w-full h-96 overflow-hidden ${className}`}>
+      <div className={`relative w-full h-96 overflow-hidden bg-transparent ${className}`}>
+        {/* Carousel Track Container */}
         <div
           ref={carouselRef}
-          className="relative w-full h-full"
+          className="relative w-full h-full cursor-grab active:cursor-grabbing"
           onMouseDown={handleDragStart}
           onMouseMove={handleDragMove}
           onMouseUp={handleDragEnd}
-          onMouseLeave={() => setIsDragging(false)}
+          onMouseLeave={() => {
+            if (isDragging) handleDragEnd();
+          }}
           onTouchStart={handleDragStart}
           onTouchMove={handleDragMove}
           onTouchEnd={handleDragEnd}
         >
-          {/* 3D Carousel Container */}
           <div
-            className="absolute inset-0 flex items-center justify-center"
+            className="flex h-full"
+            onTransitionEnd={handleTransitionEnd}
             style={{
-              transformStyle: 'preserve-3d',
-              perspective: '1000px',
+              // Use percentage based transform logic
+              transform: `translateX(calc(-${currentIndex * (100 / VISIBLE_ITEMS)}% + ${dragTranslate}px))`,
+              transition: isTransitioning ? 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
             }}
           >
-            {images.map((image, index) => {
-              const { x, z, opacity, scale } = getSlidePosition(index);
-
-              return (
+            {extendedImages.map((image, index) => (
+              <div
+                key={index}
+                className="w-1/3 flex-shrink-0 h-full flex items-center justify-center p-0"
+              >
                 <div
-                  key={index}
-                  className="absolute w-64 h-96 transition-all duration-700 ease-out cursor-pointer"
-                  style={{
-                    transform: `translateX(${x}px) translateZ(${z}px) scale(${scale})`,
-                    opacity: opacity,
-                    zIndex: Math.round((z + 300) * 10), // Higher z-index for items closer to the front
-                  }}
+                  className="w-[95%] h-80 transition-transform duration-300 hover:scale-105"
                   onClick={() => handleImageClick(image)}
                 >
                   <div className="w-full h-full rounded-xl overflow-hidden shadow-2xl border-4 border-[#4747d7]">
                     <img
                       src={image}
-                      alt={altTexts[index] || `Event image ${index + 1}`}
-                      className="w-full h-full object-cover"
+                      alt={extendedAltTexts[index] || `Event image`}
+                      className="w-full h-full object-cover pointer-events-none select-none"
                     />
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            ))}
           </div>
         </div>
 
         {/* Navigation Dots */}
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-50">
-          {images.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => goToSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-[#4747d7] w-6' : 'bg-gray-400'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2 z-10">
+          {images.map((_, index) => {
+            // Calculate active dot based on real index
+            // We map the extended currentIndex back to the 0...length range
+            let realIndex = currentIndex - VISIBLE_ITEMS;
+            if (realIndex < 0) realIndex = images.length + realIndex;
+            if (realIndex >= images.length) realIndex = realIndex - images.length;
+
+            return (
+              <button
+                key={index}
+                onClick={() => {
+                  setIsTransitioning(true);
+                  setCurrentIndex(index + VISIBLE_ITEMS);
+                }}
+                className={`h-3 rounded-full transition-all duration-300 shadow-sm ${realIndex === index ? 'bg-[#4747d7] w-6' : 'bg-gray-400 w-3 hover:bg-gray-500'
+                  }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            );
+          })}
         </div>
 
         {/* Navigation Arrows */}
         <button
-          onClick={() => {
-            setCurrentIndex(prev => (prev - 1 + images.length) % images.length);
-            setIsAutoPlaying(false);
+          onClick={(e) => {
+            e.stopPropagation();
+            moveSlide('prev');
+            setIsAutoPlaying(true); // Keep playing
           }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4747d7] bg-opacity-80 text-white p-3 rounded-full hover:bg-opacity-100 transition-all z-50"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#4747d7] bg-opacity-80 text-white p-3 rounded-full hover:bg-opacity-100 transition-all z-20 shadow-lg"
           aria-label="Previous image"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -183,11 +239,12 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
           </svg>
         </button>
         <button
-          onClick={() => {
-            setCurrentIndex(prev => (prev + 1) % images.length);
-            setIsAutoPlaying(false);
+          onClick={(e) => {
+            e.stopPropagation();
+            moveSlide('next');
+            setIsAutoPlaying(true);
           }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#4747d7] bg-opacity-80 text-white p-3 rounded-full hover:bg-opacity-100 transition-all z-50"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#4747d7] bg-opacity-80 text-white p-3 rounded-full hover:bg-opacity-100 transition-all z-20 shadow-lg"
           aria-label="Next image"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -199,26 +256,26 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
       {/* Image Preview Modal */}
       {previewImage && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4"
           onClick={closePreview}
         >
           <div
-            className="relative max-w-4xl max-h-4xl p-4"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the preview
+            className="relative max-w-4xl w-full"
+            onClick={(e) => e.stopPropagation()}
           >
             <button
-              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 z-10"
+              className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
               onClick={closePreview}
               aria-label="Close preview"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
             <img
               src={previewImage}
               alt="Preview"
-              className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              className="w-full max-h-[85vh] object-contain rounded-lg shadow-2xl"
             />
           </div>
         </div>
