@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const KitchenPage: React.FC = () => {
   return (
@@ -134,7 +135,7 @@ const KitchenPage: React.FC = () => {
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[#26262c] text-center mb-6">Our Team</h2>
           <div className="w-64 h-1 bg-[#4747d7] mx-auto mb-12"></div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Card 1: Sibonelo Mlangeni */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -146,7 +147,7 @@ const KitchenPage: React.FC = () => {
                 <p className="text-[#4747d7]">Director</p>
               </div>
             </div>
-            
+
             {/* Card 2: Alfred Peta */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
@@ -157,7 +158,7 @@ const KitchenPage: React.FC = () => {
                 <p className="text-[#4747d7]">Area Manager</p>
               </div>
             </div>
-            
+
             {/* Card 3: Nkosiyavuma Ndebele */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
@@ -168,7 +169,7 @@ const KitchenPage: React.FC = () => {
                 <p className="text-[#4747d7]">Catering Manager</p>
               </div>
             </div>
-            
+
             {/* Card 4: Bongiwe Khanyile */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
@@ -187,15 +188,15 @@ const KitchenPage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl text-center">
           <h3 className="text-2xl font-bold text-[#26262c] mb-8">Staff</h3>
-          <a 
-            href="#" 
+          <Link
+            to="/apply"
             className="inline-flex items-center bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-2 px-6 rounded-md transition duration-300"
           >
             Apply Today!
             <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </section>
     </div>

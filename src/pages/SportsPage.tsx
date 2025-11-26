@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SportsPage: React.FC = () => {
   return (
@@ -17,20 +18,20 @@ const SportsPage: React.FC = () => {
             <div>
               <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#26262c] mb-6">Sacred Heart Secondary Sport Department</h2>
               <p className="text-[#76767f] font-bold">
-                Welcome to our dynamic sports department where physical, mental, and social well-being are at the heart of our program. 
+                Welcome to our dynamic sports department where physical, mental, and social well-being are at the heart of our program.
                 We believe in developing well-rounded individuals through sport and recreation.
               </p>
             </div>
             <div className="text-right lg:text-right">
-              <a 
-                href="#bookings" 
+              <Link
+                to="/contact"
                 className="inline-flex items-center bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-3 px-6 rounded-md transition duration-300"
               >
                 Make An Enquiry
                 <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -51,21 +52,21 @@ const SportsPage: React.FC = () => {
                 <div>
                   <h4 className="font-bold text-[#26262c]">Our Soccer Program</h4>
                   <p className="text-[#76767f]">
-                    Our soccer program is affiliated with the South African Football Association (SAFA) and provides students with 
+                    Our soccer program is affiliated with the South African Football Association (SAFA) and provides students with
                     professional coaching, competitive matches, and development opportunities.
                   </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-[#26262c]">SAFA Affiliation</h4>
                   <p className="text-[#76767f]">
-                    Our affiliation with SAFA ensures our students receive quality training and have access to official tournaments 
+                    Our affiliation with SAFA ensures our students receive quality training and have access to official tournaments
                     and competitions at various levels.
                   </p>
                 </div>
                 <div>
                   <h4 className="font-bold text-[#26262c]">Girls' Soccer Club Success</h4>
                   <p className="text-[#76767f]">
-                    Our girls' soccer club has achieved remarkable success in recent tournaments, demonstrating our commitment to 
+                    Our girls' soccer club has achieved remarkable success in recent tournaments, demonstrating our commitment to
                     gender equality in sports.
                   </p>
                 </div>
@@ -79,7 +80,7 @@ const SportsPage: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <h2 className="text-3xl font-bold text-[#26262c] text-center mb-12">Peek Into Our World</h2>
-          
+
           {/* Placeholder for carousel - actual implementation would use a carousel library */}
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
             {[...Array(8)].map((_, index) => (
@@ -98,8 +99,8 @@ const SportsPage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-serif font-bold text-[#26262c] mb-4">Upcoming Swimming</h3>
               <p className="text-[#76767f]">
-                We are excited to announce the introduction of a swimming program for hostel learners. 
-                This program will promote fitness, water safety, and provide an additional recreational 
+                We are excited to announce the introduction of a swimming program for hostel learners.
+                This program will promote fitness, water safety, and provide an additional recreational
                 activity for our students.
               </p>
             </div>
@@ -124,7 +125,7 @@ const SportsPage: React.FC = () => {
                 <span className="text-gray-500 text-xs">coach-150x150.jpg</span>
               </div>
               <blockquote className="text-lg md:text-xl font-serif italic text-[#26262c]">
-                "Through sports, our students learn valuable life skills like perseverance, communication, 
+                "Through sports, our students learn valuable life skills like perseverance, communication,
                 and sportsmanship, preparing them for success in all aspects of life."
               </blockquote>
             </div>

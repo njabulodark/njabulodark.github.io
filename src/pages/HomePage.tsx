@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Users, Award, Target, BookOpen, Music, Dumbbell, Palette } from 'lucide-react';
 
 
@@ -37,10 +38,10 @@ const CountUp = ({ end, duration = 2000, suffix = '' }: { end: number; duration?
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      
+
       // Easing function for smooth animation (easeOutExpo)
       const easeOut = (x: number) => (x === 1 ? 1 : 1 - Math.pow(2, -10 * x));
-      
+
       setCount(Math.floor(easeOut(progress) * end));
 
       if (progress < 1) {
@@ -77,17 +78,17 @@ const HomePage: React.FC = () => {
 
         <div className="relative z-10 w-[80%] mx-auto">
           <div className="max-w-3xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Sacred Heart Secondary School</h1>
-        <div className="w-20 h-1 bg-[#4747d7] mb-6"></div>
-        <p className="text-xl text-[#bfd1ff] mb-8">
-          <span className="font-bold">Unlock your child's potential</span> with the world-class education at Sacred Heart Secondary School and Boarding Facility
-        </p>
-        <a
-          href="/academics"
-          className="bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-2 px-6 rounded-md transition duration-300 inline-block"
-        >
-          Our Academics
-        </a>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Sacred Heart Secondary School</h1>
+            <div className="w-20 h-1 bg-[#4747d7] mb-6"></div>
+            <p className="text-xl text-[#bfd1ff] mb-8">
+              <span className="font-bold">Unlock your child's potential</span> with the world-class education at Sacred Heart Secondary School and Boarding Facility
+            </p>
+            <Link
+              to="/academics"
+              className="bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-2 px-6 rounded-md transition duration-300 inline-block"
+            >
+              Our Academics
+            </Link>
           </div>
         </div>
       </section>
@@ -120,12 +121,12 @@ const HomePage: React.FC = () => {
           </div>
 
           <div className="text-center mt-8">
-            <a
-              href="/staff"
+            <Link
+              to="/staff"
               className="bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-2 px-6 rounded-md transition duration-300"
             >
               Know More About Us
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -144,7 +145,7 @@ const HomePage: React.FC = () => {
             </div>
             <div className="text-center p-4 bg-white rounded-lg shadow-sm md:bg-transparent md:shadow-none">
               <div className="text-4xl md:text-5xl font-bold text-[#4747d7] mb-2">
-                 <CountUp end={27} suffix="+" duration={1500} />
+                <CountUp end={27} suffix="+" duration={1500} />
               </div>
               <p className="text-[#76767f] font-medium">Qualified Staff</p>
             </div>
@@ -183,52 +184,52 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Principal's Address */}
-    <section className="py-16 bg-[#f6f6f6]">
-      <div className="w-[80%] mx-auto">
-        {/* Increased max-width to 6xl to accommodate side-by-side layout */}
-        <div className="max-w-6xl mx-auto"> 
-          
-          <h2 className="text-4xl font-caveat font-bold text-[#948f79] mb-12 text-center">
-            Principal's Address
-          </h2>
+      <section className="py-16 bg-[#f6f6f6]">
+        <div className="w-[80%] mx-auto">
+          {/* Increased max-width to 6xl to accommodate side-by-side layout */}
+          <div className="max-w-6xl mx-auto">
 
-          {/* Flex container: Stacked on mobile (flex-col), Side-by-side on desktop (md:flex-row) */}
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
-            
-            {/* LEFT COLUMN: Image & Name */}
-            <div className="flex flex-col items-center flex-shrink-0">
-              <div className="bg-gray-200 border-2 border-dashed rounded-xl w-72 h-72 flex items-center justify-center overflow-hidden shadow-sm">
-                <img
-                  src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/IMG-20240529-WA0013-1.jpg"
-                  alt="Mrs SP Hlongwa, Principal"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+            <h2 className="text-4xl font-caveat font-bold text-[#948f79] mb-12 text-center">
+              Principal's Address
+            </h2>
+
+            {/* Flex container: Stacked on mobile (flex-col), Side-by-side on desktop (md:flex-row) */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
+
+              {/* LEFT COLUMN: Image & Name */}
+              <div className="flex flex-col items-center flex-shrink-0">
+                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-72 h-72 flex items-center justify-center overflow-hidden shadow-sm">
+                  <img
+                    src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/IMG-20240529-WA0013-1.jpg"
+                    alt="Mrs SP Hlongwa, Principal"
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="text-center mt-4">
+                  <p className="font-semibold text-[#26262c] text-lg">Mrs SP Hlongwa</p>
+                  <p className="text-[#76767f]">Principal</p>
+                </div>
               </div>
-              <div className="text-center mt-4">
-                <p className="font-semibold text-[#26262c] text-lg">Mrs SP Hlongwa</p>
-                <p className="text-[#76767f]">Principal</p>
+
+              {/* RIGHT COLUMN: Speech/Text */}
+              <div className="relative text-left flex-1">
+                <p className="text-[#76767f] italic text-xl mb-6 border-l-4 border-[#948f79] pl-4">
+                  "Education is not the learning of fact, but the training of the mind to think" - Albert Einstein
+                </p>
+                <p className="text-[#76767f] mb-4 text-lg leading-relaxed">
+                  Education is a lifelong process and it begins at school. The purpose of education is to open up a closed mind. Every child here at Sacred Heart Secondary school is a unique individual. The staff at SHSS is committed to provide the students with quality education which shapes the children of today into leaders of tomorrow.
+
+                  The school is striving hard to make the best possible effort to inculcate strong values combining with academics and extra-curricula activities. Converting every individual into a self-reliant and independent citizen.
+
+                  I feel proud to express that the school is performing extremely well in all aspect to ensure academic and human excellence with blessings from God. I pray to Almighty that our journey towards excellence continues……………
+                </p>
               </div>
+
             </div>
-
-            {/* RIGHT COLUMN: Speech/Text */}
-            <div className="relative text-left flex-1">
-              <p className="text-[#76767f] italic text-xl mb-6 border-l-4 border-[#948f79] pl-4">
-                "Education is not the learning of fact, but the training of the mind to think" - Albert Einstein
-              </p>
-              <p className="text-[#76767f] mb-4 text-lg leading-relaxed">
-                Education is a lifelong process and it begins at school. The purpose of education is to open up a closed mind. Every child here at Sacred Heart Secondary school is a unique individual. The staff at SHSS is committed to provide the students with quality education which shapes the children of today into leaders of tomorrow.
-
-The school is striving hard to make the best possible effort to inculcate strong values combining with academics and extra-curricula activities. Converting every individual into a self-reliant and independent citizen.
-
-I feel proud to express that the school is performing extremely well in all aspect to ensure academic and human excellence with blessings from God. I pray to Almighty that our journey towards excellence continues……………
-              </p>
-            </div>
-
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* Curriculum Overview */}
       <section className="py-16 bg-white">

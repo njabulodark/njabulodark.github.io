@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 interface MainLayoutProps {}
@@ -61,35 +61,35 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
                   <li key={item.name} className="relative group">
                     {item.hasDropdown ? (
                       <>
-                        <a
-                          href={item.path}
+                        <Link
+                          to={item.path}
                           className="font-medium text-[#76767f] hover:text-[#4747d7] transition-colors duration-300 flex items-center font-sans text-sm sm:text-base"
                         >
                           {item.name}
                           <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
                           </svg>
-                        </a>
+                        </Link>
                         <ul className="absolute top-full left-0 bg-white shadow-lg rounded-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 min-w-max">
                           {item.dropdownItems?.map((subItem) => (
                             <li key={subItem.name}>
-                              <a
-                                href={subItem.path}
+                              <Link
+                                to={subItem.path}
                                 className="block px-4 py-2 text-[#76767f] hover:bg-[#f6f7fd] hover:text-[#4747d7] whitespace-nowrap text-sm"
                               >
                                 {subItem.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
                       </>
                     ) : (
-                      <a
-                        href={item.path}
+                      <Link
+                        to={item.path}
                         className="font-medium text-[#76767f] hover:text-[#4747d7] transition-colors duration-300 font-sans text-sm sm:text-base"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -119,25 +119,25 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
                         <ul className="pl-6 space-y-1 mt-1">
                           {item.dropdownItems?.map((subItem) => (
                             <li key={subItem.name}>
-                              <a
-                                href={subItem.path}
+                              <Link
+                                to={subItem.path}
                                 className="block py-1.5 px-4 rounded-md text-[#76767f] hover:bg-[#f6f7fd] hover:text-[#4747d7] transition-colors duration-300 font-sans text-sm"
                                 onClick={() => setIsMenuOpen(false)}
                               >
                                 {subItem.name}
-                              </a>
+                              </Link>
                             </li>
                           ))}
                         </ul>
                       </div>
                     ) : (
-                      <a
-                        href={item.path}
+                      <Link
+                        to={item.path}
                         className="block py-2 px-4 rounded-md text-[#76767f] hover:bg-[#f6f7fd] hover:text-[#4747d7] transition-colors duration-300 font-sans"
                         onClick={() => setIsMenuOpen(false)}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     )}
                   </li>
                 ))}
@@ -199,17 +199,17 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
 
             <div className="mb-6 md:mb-0">
               <ul className="flex flex-wrap justify-center gap-4">
-                <li><a href="/" className="text-[#bfd1ff] hover:text-white transition-colors">Home</a></li>
-                <li><a href="/academics" className="text-[#bfd1ff] hover:text-white transition-colors">Academics</a></li>
-                <li><a href="/admissions" className="text-[#bfd1ff] hover:text-white transition-colors">Admissions</a></li>
-                <li><a href="/apply" className="text-[#bfd1ff] hover:text-white transition-colors">Apply</a></li>
-                <li><a href="/boarding-fees" className="text-[#bfd1ff] hover:text-white transition-colors">Boarding Fees</a></li>
-                <li><a href="/activities" className="text-[#bfd1ff] hover:text-white transition-colors">Activities</a></li>
-                <li><a href="/events" className="text-[#bfd1ff] hover:text-white transition-colors">Events</a></li>
-                <li><a href="/kitchen" className="text-[#bfd1ff] hover:text-white transition-colors">Kitchen</a></li>
-                <li><a href="/staff" className="text-[#bfd1ff] hover:text-white transition-colors">Our Teachers</a></li>
-                <li><a href="/students" className="text-[#bfd1ff] hover:text-white transition-colors">Students</a></li>
-                <li><a href="/contact" className="text-[#bfd1ff] hover:text-white transition-colors">Contact</a></li>
+                <li><Link to="/" className="text-[#bfd1ff] hover:text-white transition-colors">Home</Link></li>
+                <li><Link to="/academics" className="text-[#bfd1ff] hover:text-white transition-colors">Academics</Link></li>
+                <li><Link to="/admissions" className="text-[#bfd1ff] hover:text-white transition-colors">Admissions</Link></li>
+                <li><Link to="/apply" className="text-[#bfd1ff] hover:text-white transition-colors">Apply</Link></li>
+                <li><Link to="/boarding-fees" className="text-[#bfd1ff] hover:text-white transition-colors">Boarding Fees</Link></li>
+                <li><Link to="/activities" className="text-[#bfd1ff] hover:text-white transition-colors">Activities</Link></li>
+                <li><Link to="/events" className="text-[#bfd1ff] hover:text-white transition-colors">Events</Link></li>
+                <li><Link to="/kitchen" className="text-[#bfd1ff] hover:text-white transition-colors">Kitchen</Link></li>
+                <li><Link to="/staff" className="text-[#bfd1ff] hover:text-white transition-colors">Our Teachers</Link></li>
+                <li><Link to="/students" className="text-[#bfd1ff] hover:text-white transition-colors">Students</Link></li>
+                <li><Link to="/contact" className="text-[#bfd1ff] hover:text-white transition-colors">Contact</Link></li>
               </ul>
             </div>
 
