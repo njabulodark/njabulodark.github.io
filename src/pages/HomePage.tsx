@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Users, Award, Target, BookOpen, Music, Dumbbell, Palette } from 'lucide-react';
+import { Target, Music, Dumbbell } from 'lucide-react';
 
 
 // --- Components ---
