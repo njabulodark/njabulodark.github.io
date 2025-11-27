@@ -67,12 +67,12 @@ const HomePage: React.FC = () => {
         {/* Background image - replace src with your image path */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/20240523_163224-scaled.jpg"
+            src="/images/homepage/hero.jpg"
             alt="Sacred Heart Secondary School"
             className="w-full h-full object-cover object-center"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gray-900/60"></div>
+          <div className="absolute inset-0 bg-gray-900/35"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent"></div>
         </div>
 
@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/public/images/homepage/lap Room.jpg"
+                  src="/public/images/homepage/cat.jpg"
                   alt="Computer Application Technology"
                   className="w-full h-full object-cover"
                 />
@@ -258,20 +258,24 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/20240523_163224-scaled.jpg"
-                  alt="Computer Application Technology"
-                  className="w-12 h-12 object-contain"
+                  src="/public/images/homepage/science.jpg"
+                  alt="Physical Science"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Science</h3>
+                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Physical Science</h3>
                 <p className="text-[#76767f]">Exploring the natural world through hands-on experiments and discovery.</p>
               </div>
             </div>
 
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <Award className="w-12 h-12 text-gray-400" />
+                <img
+                  src="/public/images/homepage/mathematics.jpg"
+                  alt="Mathematics"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#26262c] mb-2">Mathematics</h3>
@@ -281,17 +285,25 @@ const HomePage: React.FC = () => {
 
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <Users className="w-12 h-12 text-gray-400" />
+                <img
+                  src="/public/images/homepage/accounting.jpg"
+                  alt="Accounting"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Languages</h3>
-                <p className="text-[#76767f]">Fostering communication skills and cultural understanding.</p>
+                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Accounting</h3>
+                <p className="text-[#76767f]">Managing financial records and understanding economic principles.</p>
               </div>
             </div>
 
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <BookOpen className="w-12 h-12 text-gray-400" />
+                <img
+                  src="/public/images/homepage/humanities.jpg"
+                  alt="Humanities"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#26262c] mb-2">Humanities</h3>
@@ -301,11 +313,15 @@ const HomePage: React.FC = () => {
 
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <Palette className="w-12 h-12 text-gray-400" />
+                <img
+                  src="/public/images/homepage/Drama.jpg"
+                  alt="Drama and Music"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Creative Art</h3>
-                <p className="text-[#76767f]">Encouraging creativity and self-expression through visual arts.</p>
+                <h3 className="text-xl font-semibold text-[#26262c] mb-2">Drama and Music</h3>
+                <p className="text-[#76767f]">Developing performance skills and creative expression.</p>
               </div>
             </div>
           </div>
@@ -320,10 +336,11 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center">
-                <div className="text-center">
-                  <Target className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-                  <p className="text-gray-600">Activities Gallery</p>
-                </div>
+                <img
+                  src="/public/images/homepage/soccer.jpg"
+                  alt="Athletics"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
 
@@ -362,21 +379,20 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Newsletter Subscription */}
-      <section className="py-16 bg-[#4747d7]">
+      {/* Partners Section */}
+      <section className="py-16 bg-white">
         <div className="w-[80%] mx-auto text-center">
-          <h2 className="text-2xl font-bold text-white mb-4">Wish to know more about admissions and updates? Subscribe now!</h2>
-          <p className="text-[#bfd1ff] mb-8">Join our newsletter to stay informed about school events and important announcements.</p>
-
-          <div className="max-w-md mx-auto flex">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-grow px-4 py-2 rounded-l-md focus:outline-none"
-            />
-            <button className="bg-[#26262c] text-white px-6 py-2 rounded-r-md hover:bg-[#3a3ac5] transition duration-300">
-              Subscribe
-            </button>
+          <h2 className="text-2xl font-bold text-[#26262c] mb-10">Our Partners</h2>
+          <div className="flex flex-wrap justify-center items-center gap-12 opacity-70">
+            {[1, 2, 3, 4, 5].map((num) => (
+              <div key={num} className="h-16 w-40 flex items-center justify-center">
+                <img
+                  src={`/images/homepage/sponsor${num}.jpg`}
+                  alt={`Sponsor ${num}`}
+                  className="max-h-full max-w-full object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
