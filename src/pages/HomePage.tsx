@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/public/images/homepage/cat.jpg"
+                  src="/public/images/students/hero.jpg"
                   alt="Computer Application Technology"
                   className="w-full h-full object-cover"
                 />
