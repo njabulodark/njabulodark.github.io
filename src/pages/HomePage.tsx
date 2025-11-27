@@ -243,7 +243,11 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <BookOpen className="w-12 h-12 text-gray-400" />
+                <img
+                  src="/public/images/homepage/lap Room.jpg"
+                  alt="Computer Application Technology"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#26262c] mb-2">Computer Application Technology</h3>
@@ -253,7 +257,11 @@ const HomePage: React.FC = () => {
 
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <Target className="w-12 h-12 text-gray-400" />
+                <img
+                  src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/20240523_163224-scaled.jpg"
+                  alt="Computer Application Technology"
+                  className="w-12 h-12 object-contain"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-[#26262c] mb-2">Science</h3>
