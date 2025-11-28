@@ -200,7 +200,7 @@ const HomePage: React.FC = () => {
               <div className="flex flex-col items-center flex-shrink-0">
                 <div className="bg-gray-200 border-2 border-dashed rounded-xl w-72 h-72 flex items-center justify-center overflow-hidden shadow-sm">
                   <img
-                    src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/IMG-20240529-WA0013-1.jpg"
+                    src="/images/homepage/principal.jpg"
                     alt="Mrs SP Hlongwa, Principal"
                     className="w-full h-full object-cover"
                     loading="lazy"
