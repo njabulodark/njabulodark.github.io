@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/cat.jpg"
+                  src="/images/homepage/CAT.jpg"
                   alt="Computer Application Technology"
                   className="w-full h-full object-cover"
                 />
@@ -258,7 +258,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/science.jpg"
+                  src="/images/homepage/Science.jpg"
                   alt="Physical Science"
                   className="w-full h-full object-cover"
                 />
@@ -300,7 +300,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/humanities.jpg"
+                  src="/images/homepage/Humanities.jpg"
                   alt="Humanities"
                   className="w-full h-full object-cover"
                 />
@@ -314,7 +314,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/Drama.jpg"
+                  src="/images/homepage/drama.jpg"
                   alt="Drama and Music"
                   className="w-full h-full object-cover"
                 />
