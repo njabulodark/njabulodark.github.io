@@ -68,17 +68,19 @@ const StudentsPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {[1, 2, 3, 4].map((num) => (
-              <div className="group relative overflow-hidden rounded-xl shadow-lg h-64 ursor-pointer">
+              <div className="group relative overflow-hidden rounded-xl shadow-lg h-64 cursor-pointer">
                 <img
                   src={`/images/students/student${num}.jpg`}
-          }        alt={`Sponsor ${num}`
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  alt={`Sponsor ${num}`}
+                  className="object-cover w-full h-full block transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                   {/* <span className="text-white font-medium flex items-center gap-2"><Users size={18}/> Group Photo</span> */}
                 </div>
               </div>
             ))}
+
+
 
           </div>
         </div>

@@ -13,10 +13,11 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
 }) => {
   // Constants for the infinite loop logic
   // We clone 3 images at the start and 3 at the end to create the buffer
-  const VISIBLE_ITEMS = 3;
+  const BUFFER_ITEMS = 3;
 
   // State
-  const [currentIndex, setCurrentIndex] = useState(VISIBLE_ITEMS);
+  const [itemsPerView, setItemsPerView] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(BUFFER_ITEMS);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -34,11 +35,11 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
     if (!images || images.length === 0) return { extendedImages: [], extendedAltTexts: [] };
 
     // Create clones: last 3 items -> start, first 3 items -> end
-    const startClones = images.slice(-VISIBLE_ITEMS);
-    const endClones = images.slice(0, VISIBLE_ITEMS);
+    const startClones = images.slice(-BUFFER_ITEMS);
+    const endClones = images.slice(0, BUFFER_ITEMS);
 
-    const startAltClones = altTexts.slice(-VISIBLE_ITEMS);
-    const endAltClones = altTexts.slice(0, VISIBLE_ITEMS);
+    const startAltClones = altTexts.slice(-BUFFER_ITEMS);
+    const endAltClones = altTexts.slice(0, BUFFER_ITEMS);
 
     return {
       extendedImages: [...startClones, ...images, ...endClones],
@@ -46,10 +47,27 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
     };
   }, [images, altTexts]);
 
+  // Handle resize to update items per view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerView(1);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+
+    // Initial check
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Reset index when images change to avoid out of bounds
   useEffect(() => {
     if (images.length > 0) {
-      setCurrentIndex(VISIBLE_ITEMS);
+      setCurrentIndex(BUFFER_ITEMS);
       setIsTransitioning(false);
     }
   }, [images.length]);
@@ -61,12 +79,12 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
     const totalReal = images.length;
 
     // If we've scrolled past the real items to the end clones
-    if (currentIndex >= totalReal + VISIBLE_ITEMS) {
+    if (currentIndex >= totalReal + BUFFER_ITEMS) {
       setIsTransitioning(false); // Disable transition for instant jump
       setCurrentIndex(currentIndex - totalReal); // Jump back to the real item
     }
     // If we've scrolled past the start to the start clones
-    else if (currentIndex < VISIBLE_ITEMS) {
+    else if (currentIndex < BUFFER_ITEMS) {
       setIsTransitioning(false); // Disable transition for instant jump
       setCurrentIndex(currentIndex + totalReal); // Jump forward to the real item
     }
@@ -174,14 +192,14 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
             onTransitionEnd={handleTransitionEnd}
             style={{
               // Use percentage based transform logic
-              transform: `translateX(calc(-${currentIndex * (100 / VISIBLE_ITEMS)}% + ${dragTranslate}px))`,
+              transform: `translateX(calc(-${currentIndex * (100 / itemsPerView)}% + ${dragTranslate}px))`,
               transition: isTransitioning ? 'transform 500ms cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
             }}
           >
             {extendedImages.map((image, index) => (
               <div
                 key={index}
-                className="w-1/3 flex-shrink-0 h-full flex items-center justify-center p-0"
+                className={`flex-shrink-0 h-full flex items-center justify-center p-0 transition-all duration-300 ${itemsPerView === 1 ? 'w-full' : 'w-1/3'}`}
               >
                 <div
                   className="w-[95%] h-80 transition-transform duration-300 hover:scale-105"
@@ -205,7 +223,7 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
           {images.map((_, index) => {
             // Calculate active dot based on real index
             // We map the extended currentIndex back to the 0...length range
-            let realIndex = currentIndex - VISIBLE_ITEMS;
+            let realIndex = currentIndex - BUFFER_ITEMS;
             if (realIndex < 0) realIndex = images.length + realIndex;
             if (realIndex >= images.length) realIndex = realIndex - images.length;
 
@@ -214,7 +232,7 @@ const ThreeDCarousel: React.FC<ThreeDCarouselProps> = ({
                 key={index}
                 onClick={() => {
                   setIsTransitioning(true);
-                  setCurrentIndex(index + VISIBLE_ITEMS);
+                  setCurrentIndex(index + BUFFER_ITEMS);
                 }}
                 className={`h-3 rounded-full transition-all duration-300 shadow-sm ${realIndex === index ? 'bg-[#4747d7] w-6' : 'bg-gray-400 w-3 hover:bg-gray-500'
                   }`}
