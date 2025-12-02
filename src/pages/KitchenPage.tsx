@@ -1,6 +1,5 @@
-import { Link } from 'react-router-dom';
-import React, { useState } from 'react';
-import { ChefHat, Coffee, Utensils, ArrowRight, Clock, MapPin, Users, Heart, Star, Calendar } from 'lucide-react';
+import React from 'react';
+import { Coffee, Utensils, Clock} from 'lucide-react';
 
 const KitchenPage: React.FC = () => {
 
@@ -56,20 +55,20 @@ const KitchenPage: React.FC = () => {
     );
   };
 
-  const TeamCard = ({ name, role, imgSrc }: { name: string; role: string; imgSrc: string }) => (
-    <div className="bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden group border border-slate-100/50">
-      <div className="w-full h-80 overflow-hidden relative bg-slate-100">
-        <div className="absolute inset-0 bg-gradient-to-t from-[#4747d7] via-transparent to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
-          <p className="text-white font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Connect on LinkedIn</p>
-        </div>
-        <img src={imgSrc} alt={name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-      </div>
-      <div className="p-6 text-center bg-white relative z-20">
-        <h3 className="text-xl font-bold text-slate-800">{name}</h3>
-        <p className="text-[#4747d7] font-semibold text-xs mt-2 uppercase tracking-widest border-t border-slate-100 pt-3 inline-block">{role}</p>
-      </div>
-    </div>
-  );
+  // const TeamCard = ({ name, role, imgSrc }: { name: string; role: string; imgSrc: string }) => (
+  //   <div className="bg-white rounded-[2rem] shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 overflow-hidden group border border-slate-100/50">
+  //     <div className="w-full h-80 overflow-hidden relative bg-slate-100">
+  //       <div className="absolute inset-0 bg-gradient-to-t from-[#4747d7] via-transparent to-transparent opacity-0 group-hover:opacity-90 transition-opacity duration-500 z-10 flex flex-col justify-end p-6">
+  //         <p className="text-white font-medium translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">Connect on LinkedIn</p>
+  //       </div>
+  //       <img src={imgSrc} alt={name} className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+  //     </div>
+  //     <div className="p-6 text-center bg-white relative z-20">
+  //       <h3 className="text-xl font-bold text-slate-800">{name}</h3>
+  //       <p className="text-[#4747d7] font-semibold text-xs mt-2 uppercase tracking-widest border-t border-slate-100 pt-3 inline-block">{role}</p>
+  //     </div>
+  //   </div>
+  // );
 
   return (
     <div className="bg-white min-h-screen">

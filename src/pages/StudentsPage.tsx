@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Users, BookOpen, Tent, Camera } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Users, Tent, Camera } from 'lucide-react';
 
 
 const StudentsPage: React.FC = () => {
@@ -19,11 +19,11 @@ const StudentsPage: React.FC = () => {
     "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   ];
 
-  const nextSlide = (currentIndex: number, setIndex: React.Dispatch<React.SetStateAction<number>>, total: number) => {
+  const nextSlide = (setIndex: React.Dispatch<React.SetStateAction<number>>, total: number) => {
     setIndex((prev) => (prev + 1) % total);
   };
 
-  const prevSlide = (currentIndex: number, setIndex: React.Dispatch<React.SetStateAction<number>>, total: number) => {
+  const prevSlide = (setIndex: React.Dispatch<React.SetStateAction<number>>, total: number) => {
     setIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   };
 
@@ -127,13 +127,13 @@ const StudentsPage: React.FC = () => {
               {/* Carousel Controls Overlay */}
               <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
-                  onClick={() => prevSlide(bootCampIndex, setBootCampIndex, bootCampImages.length)}
+                  onClick={() => prevSlide(setBootCampIndex, bootCampImages.length)}
                   className="bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 transition-colors shadow-lg"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button
-                  onClick={() => nextSlide(bootCampIndex, setBootCampIndex, bootCampImages.length)}
+                  onClick={() => nextSlide(setBootCampIndex, bootCampImages.length)}
                   className="bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 transition-colors shadow-lg"
                 >
                   <ChevronRight size={24} />
@@ -179,13 +179,13 @@ const StudentsPage: React.FC = () => {
               />
               <div className="absolute inset-0 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
-                  onClick={() => prevSlide(staffIndex, setStaffIndex, staffImages.length)}
+                  onClick={() => prevSlide(setStaffIndex, staffImages.length)}
                   className="bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 transition-colors shadow-lg"
                 >
                   <ChevronLeft size={24} />
                 </button>
                 <button
-                  onClick={() => nextSlide(staffIndex, setStaffIndex, staffImages.length)}
+                  onClick={() => nextSlide(setStaffIndex, staffImages.length)}
                   className="bg-white/80 p-2 rounded-full hover:bg-white text-gray-800 transition-colors shadow-lg"
                 >
                   <ChevronRight size={24} />
