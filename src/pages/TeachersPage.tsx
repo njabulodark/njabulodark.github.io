@@ -1,8 +1,15 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Star, User, Quote } from 'lucide-react';
 
+// Interface for ProfileImage props
+interface ProfileImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
 // Reusable Image Component with Fallback
-const ProfileImage = ({ src, alt, className }) => {
+const ProfileImage = ({ src, alt, className }: ProfileImageProps) => {
   const [error, setError] = useState(false);
 
   if (error) {
