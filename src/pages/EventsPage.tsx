@@ -30,7 +30,7 @@ const EventsPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="w-full h-96 mb-4 overflow-hidden rounded-xl shadow-xl">
                   <img
-                    src="/images/events/matric_dance_2024/IMG-20241123-WA0006-scaled.jpg"
+                    src="/images/events/matric_dance_2024/pic1.jpg"
                     alt="Matric Dance Highlight"
                     className="w-full h-full object-cover"
                   />
@@ -64,18 +64,10 @@ const EventsPage: React.FC = () => {
           {/* Gallery Carousel */}
           <h4 className="text-xl font-bold text-[#26262c] mb-6">Photo Gallery</h4>
           <ThreeDCarousel
-            images={[
-              '/images/events/matric_dance_2024/IMG-20241123-WA0006-scaled.jpg',
-              '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
-              '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
-              '/images/events/matric_dance_2024/IMG-20241123-WA0022-225x300.jpg',
-              '/images/events/matric_dance_2024/IMG-20241123-WA0023-225x300.jpg'
-            ]}
-            altTexts={[
-              'Matric Dance Highlight',
-              'Matric Dance 2',
-              'Matric Dance 3'
-            ]}
+            images={Array.from({ length: 10 }, (_, i) => `/images/events/matric_dance_2024/pic${i + 1}.jpg`)}
+            altTexts={Array.from({ length: 10 }, (_, i) =>
+              i === 0 ? 'Matric Dance Highlight' : `Matric Dance ${i + 1}`
+            )}
           />
         </div>
       </section>
@@ -100,7 +92,7 @@ const EventsPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="w-full h-96 mb-4 overflow-hidden rounded-xl shadow-xl">
                   <img
-                    src="/images/events/business_lunch/PHOTO-2024-10-08-22-19-15-7-2.jpg"
+                    src="/images/events/business_lunch/pic6.jpg"
                     alt="Business Lunch Highlight"
                     className="w-full h-full object-cover"
                   />
@@ -134,16 +126,10 @@ const EventsPage: React.FC = () => {
           {/* Gallery Carousel */}
           <h4 className="text-xl font-bold text-[#26262c] mb-6">Photo Gallery</h4>
           <ThreeDCarousel
-            images={[
-              '/images/events/business_lunch/PHOTO-2024-10-08-22-19-15-7-2.jpg',
-              '/images/events/business_lunch/PHOTO-2024-10-08-22-19-15-1-300x200.jpg',
-              '/images/events/business_lunch/PHOTO-2024-10-08-22-19-15-2-300x200.jpg'
-            ]}
-            altTexts={[
-              'Business Lunch Highlight',
-              'Business Lunch 2',
-              'Business Lunch 3'
-            ]}
+            images={Array.from({ length: 10 }, (_, i) => `/images/events/business_lunch/pic${i + 1}.jpg`)}
+            altTexts={Array.from({ length: 10 }, (_, i) =>
+              i === 0 ? 'Business Lunch Highlight' : `Business Lunch ${i + 1}`
+            )}
           />
         </div>
       </section>
@@ -168,7 +154,7 @@ const EventsPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="w-full h-96 mb-4 overflow-hidden rounded-xl shadow-xl">
                   <img
-                    src="/images/events/gala_dinner_2024/Sacred-Heart-6187-2.jpg"
+                    src="/images/events/gala_dinner_2024/pic12.jpg"
                     alt="Gala Dinner 2024 Highlight"
                     className="w-full h-full object-cover"
                   />
@@ -203,16 +189,10 @@ const EventsPage: React.FC = () => {
           {/* Gallery Carousel */}
           <h4 className="text-xl font-bold text-[#26262c] mb-6">Photo Gallery</h4>
           <ThreeDCarousel
-            images={[
-              '/images/events/gala_dinner_2024/Sacred-Heart-6187-2.jpg',
-              '/images/events/gala_dinner_2024/Sacred-Heart-6188-2.jpg',
-              '/images/events/gala_dinner_2024/Sacred-Heart-6183-1.jpg'
-            ]}
-            altTexts={[
-              'Gala Dinner 2024 Highlight',
-              'Gala Dinner 2',
-              'Gala Dinner 3'
-            ]}
+            images={Array.from({ length: 10 }, (_, i) => `/images/events/gala_dinner_2024/pic${i + 1}.jpg`)}
+            altTexts={Array.from({ length: 10 }, (_, i) =>
+              i === 0 ? 'Gala Dinner Highlight' : `Gala Dinner ${i + 1}`
+            )}
           />
         </div>
       </section>
@@ -237,7 +217,7 @@ const EventsPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="w-full h-96 mb-4 overflow-hidden rounded-xl shadow-xl">
                   <img
-                    src="/images/events/gala_dinner_2023/IMG_9557-scaled.jpg"
+                    src="/images/events/gala_dinner_2023/pic9.jpg"
                     alt="Gala Dinner 2023 Highlight"
                     className="w-full h-full object-cover"
                   />
@@ -273,16 +253,10 @@ const EventsPage: React.FC = () => {
           {/* Gallery Carousel */}
           <h4 className="text-xl font-bold text-[#26262c] mb-6">Photo Gallery</h4>
           <ThreeDCarousel
-            images={[
-              '/images/events/gala_dinner_2023/IMG_9557-scaled.jpg',
-              '/images/events/gala_dinner_2023/IMG_9695-300x200.jpg',
-              '/images/events/gala_dinner_2023/IMG_9692-300x200.jpg'
-            ]}
-            altTexts={[
-              'Gala Dinner 2023 Highlight',
-              'Gala Dinner 2',
-              'Gala Dinner 3'
-            ]}
+            images={Array.from({ length: 10 }, (_, i) => `/images/events/gala_dinner_2023/pic${i + 1}.jpg`)}
+            altTexts={Array.from({ length: 10 }, (_, i) =>
+              i === 0 ? 'Gala Dinner Highlight' : `Gala Dinner ${i + 1}`
+            )}
           />
         </div>
       </section>
@@ -307,7 +281,7 @@ const EventsPage: React.FC = () => {
               <div className="w-full max-w-lg">
                 <div className="w-full h-96 mb-4 overflow-hidden rounded-xl shadow-xl">
                   <img
-                    src="/images/events/valentines_day_picnic/IMG-20240215-WA0004-1024x576.jpg"
+                    src="/images/events/valentines_day_picnic/pic1.jpg"
                     alt="Valentine's Day Highlight"
                     className="w-full h-full object-cover"
                   />
@@ -343,16 +317,10 @@ const EventsPage: React.FC = () => {
           {/* Gallery Carousel */}
           <h4 className="text-xl font-bold text-[#26262c] mb-6">Photo Gallery</h4>
           <ThreeDCarousel
-            images={[
-              '/images/events/valentines_day_picnic/IMG-20240215-WA0004-1024x576.jpg',
-              '/images/events/valentines_day_picnic/IMG-20240215-WA0005.jpg',
-              '/images/events/valentines_day_picnic/IMG-20240528-WA0024-150x150.jpg'
-            ]}
-            altTexts={[
-              'Valentine\'s Day Highlight',
-              'Valentine\'s Day 2',
-              'Valentine\'s Day 3'
-            ]}
+            images={Array.from({ length: 10 }, (_, i) => `/images/events/valentines_day_picnic/pic${i + 1}.jpg`)}
+            altTexts={Array.from({ length: 10 }, (_, i) =>
+              i === 0 ? 'Valentine\'s Day Highlight' : `Valentine\'s Day ${i + 1}`
+            )}
           />
         </div>
       </section>
