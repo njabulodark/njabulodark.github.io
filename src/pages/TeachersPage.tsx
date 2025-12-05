@@ -21,10 +21,10 @@ const ProfileImage = ({ src, alt, className }: ProfileImageProps) => {
   }
 
   return (
-    <img 
-      src={src} 
-      alt={alt} 
-      className={className} 
+    <img
+      src={src}
+      alt={alt}
+      className={className}
       onError={() => setError(true)}
     />
   );
@@ -39,28 +39,26 @@ const TeachersPage = () => {
     { id: 4, name: 'Miss NP Luthuli', subject: 'Physical Science', photo: 'luthuli' },
     { id: 5, name: 'Miss T Mazibuko', subject: 'Tourism', photo: 'mazibuko' },
     { id: 6, name: 'Miss TL Mvubu', subject: 'IsiZulu', photo: 'mvubu' },
-    { id: 7, name: 'Miss TN Shozi', subject: 'English', photo: 'shozi' },
+    { id: 7, name: 'Miss TN Shozi', subject: 'Business Studies', photo: 'shozi' },
     { id: 8, name: 'Miss HP Ndlovu', subject: 'IsiZulu', photo: 'ndlovu' },
-    { id: 9, name: 'Miss TH Msomi', subject: 'History', photo: 'msomi' },
+    { id: 9, name: 'Miss TH Msomi', subject: 'Geography', photo: 'msomi' },
     { id: 10, name: 'Miss NP Zulu', subject: 'Agriculture', photo: 'zulu' },
-    { id: 11, name: 'Miss Shandu', subject: 'Maths Literacy', photo: 'shandu' },
+    { id: 11, name: 'Miss MA ndlovu', subject: 'IsiZulu', photo: 'ma_ndlovu' },
     { id: 12, name: 'Mrs BG Makhanya', subject: 'Life Orientation', photo: 'makhanya' },
     { id: 13, name: 'Mr M Mthalane', subject: 'Music', photo: 'mthalane' },
     { id: 14, name: 'Mr Mthethwa', subject: 'Isizulu', photo: 'mthethwa' },
-    { id: 15, name: 'Miss Mkhize', subject: 'History', photo: 'mkhize' },
+    { id: 15, name: 'Miss Kheswa', subject: 'History', photo: 'kheswa' },
     { id: 16, name: 'Miss TC Simon', subject: 'English', photo: 'simon' },
-    { id: 17, name: 'Mr AG Jhungbathur', subject: 'Maths', photo: 'jhungbathur' },
+    { id: 17, name: 'Mr S Ndlovu', subject: 'Mathematics', photo: 's_ndlovu' },
     { id: 18, name: 'Miss A Mzobe', subject: 'Business Studies', photo: 'mzobe' },
-    { id: 19, name: 'Miss P Barnes', subject: 'Admin', photo: 'barnes' },
-    { id: 20, name: 'Miss T Ngidi', subject: 'Admin', photo: 'ngidi' },
-    { id: 21, name: 'Mr SK Pillay', subject: 'Accounting', photo: 'pillay' },
-    { id: 22, name: 'Mr. Rasta T Mahaye', subject: 'Lithographic Operator', photo: 'rasta' },
+    { id: 20, name: 'Miss T Ngidi', subject: 'Clerk', photo: 'ngidi' },
+    { id: 22, name: 'Mr. Malinga', subject: 'Lithographic Operator', photo: 'malinga' },
     { id: 23, name: 'Mr. Mhlengi', subject: 'Technician', photo: 'mhlengi' },
   ];
 
   return (
     <div className="bg-gray-50 min-h-screen font-sans text-slate-800">
-      
+
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center bg-blue-950 text-white overflow-hidden">
         {/* Decorative Elements */}
@@ -84,7 +82,7 @@ const TeachersPage = () => {
           </h1>
 
           <p className="max-w-2xl mx-auto text-blue-100/90 text-lg md:text-xl leading-relaxed font-light">
-            Behind every student's success is a passionate team of educators and staff. 
+            Behind every student's success is a passionate team of educators and staff.
             We are mentors, innovators, and support systems dedicated to nurturing the spirit and confidence of every learner.
           </p>
         </div>
@@ -101,11 +99,11 @@ const TeachersPage = () => {
               <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Deputy Principal</h3>
               <div className="prose prose-lg text-slate-600 mb-6 leading-relaxed">
                 <p>
-                  Meet our dedicated Deputy Principal, <strong>Mrs. NS Goba</strong>, fostering excellence and supporting student success. 
+                  Meet our dedicated Deputy Principal, <strong>Mrs. NS Goba</strong>, fostering excellence and supporting student success.
                   Our Deputy Principal ensures every student's potential is nurtured. Guiding academic excellence, she leads with passion.
                 </p>
                 <p>
-                  At the heart of our school's success, our Deputy Principal champions innovation and collaboration. 
+                  At the heart of our school's success, our Deputy Principal champions innovation and collaboration.
                   Working alongside the principal, she shapes the future of our school.
                 </p>
               </div>
@@ -127,10 +125,10 @@ const TeachersPage = () => {
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative group">
-               <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-2 transition-transform group-hover:-rotate-1"></div>
-               <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                 <ProfileImage src="images/teachers/mtshali.jpg" alt="Miss. NC Mtshali" className="w-full h-full object-cover" />
-               </div>
+              <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-2 transition-transform group-hover:-rotate-1"></div>
+              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
+                <ProfileImage src="images/teachers/mtshali.jpg" alt="Miss. NC Mtshali" className="w-full h-full object-cover" />
+              </div>
             </div>
             <div>
               <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50 rounded-full">
@@ -138,11 +136,11 @@ const TeachersPage = () => {
               </div>
               <h4 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">HOD of Science</h4>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                <strong>Miss. NC Mtshali</strong>, our Head of the Science Department, is a dedicated educator with over a decade of experience. 
+                <strong>Miss. NC Mtshali</strong>, our Head of the Science Department, is a dedicated educator with over a decade of experience.
                 Her leadership fosters a collaborative learning environment.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed">
-                 Miss Mtshali's passion for science and her warm, approachable nature inspire both students and staff to explore the wonders of the physical world.
+                Miss Mtshali's passion for science and her warm, approachable nature inspire both students and staff to explore the wonders of the physical world.
               </p>
             </div>
           </div>
@@ -182,10 +180,10 @@ const TeachersPage = () => {
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="relative group">
-               <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-2"></div>
-               <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                 <ProfileImage src="images/teachers/vambe.jpg" alt="Mr. Vambe" className="w-full h-full object-cover" />
-               </div>
+              <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-2"></div>
+              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
+                <ProfileImage src="images/teachers/vambe.jpg" alt="Mr. Vambe" className="w-full h-full object-cover" />
+              </div>
             </div>
             <div>
               <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-indigo-600 uppercase bg-indigo-50 rounded-full">
@@ -210,7 +208,7 @@ const TeachersPage = () => {
           <h4 className="text-lg font-semibold text-blue-600 uppercase tracking-widest mb-3">Our Community</h4>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-8">Meet The Full Team</h2>
           <p className="text-slate-600 text-lg leading-relaxed">
-            Our educators are not just teachers; they are mentors, role models, and advocates for learning. 
+            Our educators are not just teachers; they are mentors, role models, and advocates for learning.
             Supported by our efficient admin and technical staff, they create a nurturing environment where every learner has the opportunity to succeed.
           </p>
         </div>
@@ -223,13 +221,13 @@ const TeachersPage = () => {
             {teachers.map(teacher => (
               <div key={teacher.id} className="group bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 <div className="h-64 overflow-hidden bg-slate-100 relative">
-                  <ProfileImage 
-                    src={`images/teachers/${teacher.photo}.jpg`} 
-                    alt={teacher.name} 
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" 
+                  <ProfileImage
+                    src={`images/teachers/${teacher.photo}.jpg`}
+                    alt={teacher.name}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                     <p className="text-white text-sm font-medium">View Profile</p>
+                    <p className="text-white text-sm font-medium">View Profile</p>
                   </div>
                 </div>
                 <div className="p-6">

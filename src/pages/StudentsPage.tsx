@@ -4,12 +4,7 @@ import { ChevronLeft, ChevronRight, Users, Tent, Camera } from 'lucide-react';
 
 const StudentsPage: React.FC = () => {
   const [bootCampIndex, setBootCampIndex] = useState(0);
-  const bootCampImages = [
-    "https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1533240332313-0db49b459ad6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-    "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-  ];
+  const bootCampImages = Array.from({ length: 13 }, (_, i) => `/images/students/camp/pic${i + 1}.jpg`);
 
   // State for Staff Carousel
   const [staffIndex, setStaffIndex] = useState<number>(0);
@@ -110,10 +105,6 @@ const StudentsPage: React.FC = () => {
               <p className="text-[#76767f] text-lg leading-relaxed">
                 Through these programs, students gain valuable life skills and create lasting memories that shape their character and future success.
               </p>
-
-              <button className="mt-8 px-8 py-3 bg-[#4747d7] text-white font-semibold rounded hover:bg-[#3636b0] transition-colors">
-                View 2024 Gallery
-              </button>
             </div>
 
             {/* Boot Camp Carousel */}

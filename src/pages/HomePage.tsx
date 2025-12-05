@@ -67,7 +67,7 @@ const HomePage: React.FC = () => {
         {/* Background image - replace src with your image path */}
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/images/homepage/hero.jpg"
+            src="/images/homepage/sacred.jpg"
             alt="Sacred Heart Secondary School"
             className="w-full h-full object-cover object-center"
             loading="lazy"
@@ -244,7 +244,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/CAT.jpg"
+                  src="/images/homepage/computerlap.jpg"
                   alt="Computer Application Technology"
                   className="w-full h-full object-cover"
                 />
@@ -258,7 +258,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/Science.jpg"
+                  src="/images/homepage/science.jpg"
                   alt="Physical Science"
                   className="w-full h-full object-cover"
                 />
@@ -272,7 +272,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/mathematics.jpg"
+                  src="/images/homepage/maths.jpg"
                   alt="Mathematics"
                   className="w-full h-full object-cover"
                 />
@@ -300,7 +300,7 @@ const HomePage: React.FC = () => {
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
                 <img
-                  src="/images/homepage/Humanities.jpg"
+                  src="/images/homepage/humanities.jpg"
                   alt="Humanities"
                   className="w-full h-full object-cover"
                 />

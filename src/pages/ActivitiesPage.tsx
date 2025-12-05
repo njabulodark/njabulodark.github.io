@@ -6,8 +6,8 @@ const ActivitiesPage: React.FC = () => {
   const galleryImages = [
     { src: "images/activities/pic1.jpg", title: "Instrumental" },
     { src: "images/activities/pic2.jpg", title: "Vocal Training" },
-    { src: "images/activities/pic3.jpg", title: "Ensemble" },
-    { src: "images/activities/pic4.jpg", title: "Theory" }
+    { src: "images/activities/pic5.jpg", title: "Ensemble" },
+    { src: "images/activities/pic6.jpg", title: "Theory" }
   ];
 
   return (
@@ -132,7 +132,7 @@ const ActivitiesPage: React.FC = () => {
             <div className="lg:col-span-7 order-2 lg:order-1 relative">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/10">
                 <img
-                  src="images/activities/singing.jpg"
+                  src="images/activities/pic7.jpg"
                   alt="Performing Arts"
                   className="w-full h-[400px] object-cover transform transition-transform duration-700 group-hover:scale-105"
                 />

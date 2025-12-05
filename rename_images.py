@@ -5,6 +5,7 @@ Script to rename all image files in a directory structure to be iterable (pic1.j
 
 import os
 import glob
+import uuid
 from pathlib import Path
 
 def get_image_extensions():
@@ -29,37 +30,50 @@ def rename_images_in_directory(root_dir):
     
     print(f"Found {len(image_files)} image files")
     
-    # Rename files sequentially
-    renamed_count = 0
-    for i, old_path in enumerate(image_files, 1):
+    # Step 1: Rename to temporary names to avoid collisions
+    temp_files = []
+    print("Step 1: Renaming to temporary files...")
+    for old_path in image_files:
         try:
-            # Get the directory and extension of the original file
             dir_name = os.path.dirname(old_path)
             base_name = os.path.basename(old_path)
+            name_without_ext, ext = os.path.splitext(base_name)
+            
+            # Create temp filename
+            temp_filename = f"temp_{uuid.uuid4().hex}{ext}"
+            temp_path = os.path.join(dir_name, temp_filename)
+            
+            os.rename(old_path, temp_path)
+            temp_files.append(temp_path)
+        except Exception as e:
+            print(f"Error creating temp file for {old_path}: {e}")
+
+    # Step 2: Rename to final names
+    print("Step 2: Renaming to final sequential names...")
+    renamed_count = 0
+    for i, temp_path in enumerate(temp_files, 1):
+        try:
+            dir_name = os.path.dirname(temp_path)
+            base_name = os.path.basename(temp_path)
             name_without_ext, ext = os.path.splitext(base_name)
             
             # Create new filename
             new_filename = f"pic{i}{ext}"
             new_path = os.path.join(dir_name, new_filename)
             
-            # Skip if already named correctly
-            if old_path == new_path:
-                continue
-                
-            # Rename the file
-            os.rename(old_path, new_path)
+            os.rename(temp_path, new_path)
             print(f"Renamed: {base_name} -> {new_filename}")
             renamed_count += 1
             
         except Exception as e:
-            print(f"Error renaming {old_path}: {e}")
+            print(f"Error renaming {temp_path} to final name: {e}")
     
     print(f"\nSuccessfully renamed {renamed_count} files")
 
 def main():
     # Get the directory where this script is located
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    images_dir = os.path.join(current_dir, "public", "images", "events", "business_lunch")
+    images_dir = os.path.join(current_dir, "public", "images", "students", "camp")
     
     if not os.path.exists(images_dir):
         print(f"Error: Images directory {images_dir} does not exist")
