@@ -16,7 +16,7 @@ const AcademicsPage: React.FC = () => {
           <h6 className="text-lg font-medium text-[#26262c] mb-2">Our Curriculum Overview</h6>
           <h2 className="text-3xl md:text-4xl font-bold text-[#26262c] mb-6">A Commitment to Excellence</h2>
           <div className="w-16 h-1 bg-[#4747d7] mb-8"></div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <p className="text-[#76767f]">
@@ -41,9 +41,9 @@ const AcademicsPage: React.FC = () => {
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="w-full h-48 flex items-center justify-center overflow-hidden">
                 <img
-                  src="https://sacredheartoakford.co.za/wp-content/uploads/2024/07/MobileLab-gigapixel-standard-scale-4_00x-2048x1002.jpg"
+                  src="images/homepage/science.jpg"
                   alt="Science Department"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -77,7 +77,7 @@ const AcademicsPage: React.FC = () => {
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/20240528_082309-scaled.jpg"
                   alt="Computer Application Technology"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -94,7 +94,7 @@ const AcademicsPage: React.FC = () => {
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/07/20240722_110832-scaled.jpg"
                   alt="Accounting"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -111,7 +111,7 @@ const AcademicsPage: React.FC = () => {
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/school-template-curriculum-img-3.jpg"
                   alt="Humanities"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -128,7 +128,7 @@ const AcademicsPage: React.FC = () => {
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/07/20240722_110739-scaled.jpg"
                   alt="Business Studies"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -145,7 +145,7 @@ const AcademicsPage: React.FC = () => {
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/shutterstock_1289254792.jpg"
                   alt="Agricultural Science"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -156,13 +156,30 @@ const AcademicsPage: React.FC = () => {
               </div>
             </div>
 
+            {/* Drama Program */}
+            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+              <div className="w-full h-48 flex items-center justify-center overflow-hidden">
+                <img
+                  src="/images/activities/main.jpg"
+                  alt="Drama Program"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#26262c] mb-3">Drama and Music</h3>
+                <p className="text-[#76767f]">
+                  At Sacred Heart Secondary School, we believe in the power of the art to inspire.
+                </p>
+              </div>
+            </div>
+
             {/* Electrical Engineering (up coming) */}
             <div className="bg-white rounded-lg shadow-md overflow-hidden">
               <div className="w-full h-48 flex items-center justify-center overflow-hidden">
                 <img
                   src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/ElectricalEngineering_1000x750.jpg"
                   alt="Electrical Engineering"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-6">
@@ -173,22 +190,7 @@ const AcademicsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Drama Program (up coming) */}
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
-              <div className="w-full h-48 flex items-center justify-center overflow-hidden">
-                <img
-                  src="https://sacredheartoakford.co.za/wp-content/uploads/2024/05/ElectricalEngineering_1000x750.jpg"
-                  alt="Drama Program"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-[#26262c] mb-3">Welcome to SHSS Drama Program! (up coming)</h3>
-                <p className="text-[#76767f]">
-                  At Sacred Heart Secondary School, we believe in the power of the art to inspire.
-                </p>
-              </div>
-            </div>
+
           </div>
         </div>
       </section>

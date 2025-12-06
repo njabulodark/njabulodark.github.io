@@ -35,7 +35,7 @@ const TeachersPage = () => {
   const teachers = [
     { id: 1, name: 'Mr NA Khumalo', subject: 'CAT', photo: 'khumalo' },
     { id: 2, name: 'Miss T Mngadi', subject: 'Mathematics', photo: 'mngadi' },
-    { id: 3, name: 'Mr S Niehaus', subject: 'Geography', photo: 'niehaus' },
+    { id: 3, name: 'Ms NS Ndlovu', subject: 'Life Sciences', photo: 'ns_ndlovu' },
     { id: 4, name: 'Miss NP Luthuli', subject: 'Physical Science', photo: 'luthuli' },
     { id: 5, name: 'Miss T Mazibuko', subject: 'Tourism', photo: 'mazibuko' },
     { id: 6, name: 'Miss TL Mvubu', subject: 'IsiZulu', photo: 'mvubu' },
@@ -112,7 +112,7 @@ const TeachersPage = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-2"></div>
                 <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                  <ProfileImage src="images/teachers/goba.jpg" alt="Mrs. NS Goba" className="w-full h-full object-cover" />
+                  <ProfileImage src="images/teachers/goba.jpg" alt="Mrs. NS Goba" className="w-full h-full object-cover object-top" />
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@ const TeachersPage = () => {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-2 transition-transform group-hover:-rotate-1"></div>
               <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                <ProfileImage src="images/teachers/mtshali.jpg" alt="Miss. NC Mtshali" className="w-full h-full object-cover" />
+                <ProfileImage src="images/teachers/mtshali.jpg" alt="Miss. NC Mtshali" className="w-full h-full object-cover object-top" />
               </div>
             </div>
             <div>
@@ -167,7 +167,7 @@ const TeachersPage = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-indigo-100 to-blue-100 rounded-2xl transform rotate-2 transition-transform group-hover:rotate-1"></div>
                 <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                  <ProfileImage src="images/teachers/mkhize.jpg" alt="Mr. SMN Mkhize" className="w-full h-full object-cover" />
+                  <ProfileImage src="images/teachers/mkhize.jpg" alt="Mr. SMN Mkhize" className="w-full h-full object-cover object-top" />
                 </div>
               </div>
             </div>
@@ -182,7 +182,7 @@ const TeachersPage = () => {
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-l from-blue-100 to-indigo-100 rounded-2xl transform -rotate-3 transition-transform group-hover:-rotate-2"></div>
               <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
-                <ProfileImage src="images/teachers/vambe.jpg" alt="Mr. Vambe" className="w-full h-full object-cover" />
+                <ProfileImage src="images/teachers/vambe.jpg" alt="Mr. Vambe" className="w-full h-full object-cover object-top" />
               </div>
             </div>
             <div>
@@ -224,7 +224,7 @@ const TeachersPage = () => {
                   <ProfileImage
                     src={`images/teachers/${teacher.photo}.jpg`}
                     alt={teacher.name}
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                     <p className="text-white text-sm font-medium">View Profile</p>
