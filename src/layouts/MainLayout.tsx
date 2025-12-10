@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import MetaTags from '../components/MetaTags';
+import EducationalInstitutionSchema from '../components/EducationalInstitutionSchema';
 
-interface MainLayoutProps {}
+interface MainLayoutProps { }
 
 const MainLayout: React.FC<MainLayoutProps> = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,12 +21,14 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
 
   const menuItems = [
     { name: 'Home', path: '/' },
-    { name: 'About Us', path: '#', hasDropdown: true, dropdownItems: [
+    {
+      name: 'About Us', path: '#', hasDropdown: true, dropdownItems: [
         { name: 'Students', path: '/students' },
         { name: 'Our Teachers', path: '/staff' }
       ]
     },
-    { name: 'Our Boarding', path: '#', hasDropdown: true, dropdownItems: [
+    {
+      name: 'Our Boarding', path: '#', hasDropdown: true, dropdownItems: [
         { name: 'Boarding Fees – 2024', path: '/boarding-fees' },
         { name: 'Kitchen', path: '/kitchen' }
       ]
@@ -149,6 +153,8 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
 
       {/* Main Content */}
       <main className="flex-grow">
+        <MetaTags />
+        <EducationalInstitutionSchema />
         <Outlet />
       </main>
 
@@ -191,7 +197,7 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <img
-                src="https://sacredheartoakford.co.za/wp-content/uploads/2021/05/site-logo-1.svg"
+                src="/images/logo.jpg"
                 alt="Sacred Heart Secondary School"
                 className="h-16"
               />

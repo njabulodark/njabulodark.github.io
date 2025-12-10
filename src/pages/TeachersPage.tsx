@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Star, User, Quote } from 'lucide-react';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 // Interface for ProfileImage props
 interface ProfileImageProps {
@@ -8,9 +9,9 @@ interface ProfileImageProps {
   className?: string;
 }
 
-// Reusable Image Component with Fallback
+// Reusable Image Component with Fallback and lazy loading
 const ProfileImage = ({ src, alt, className }: ProfileImageProps) => {
-  const [error, setError] = useState(false);
+  const [error] = useState(false);
 
   if (error) {
     return (
@@ -21,11 +22,11 @@ const ProfileImage = ({ src, alt, className }: ProfileImageProps) => {
   }
 
   return (
-    <img
+    <ResponsiveImage
       src={src}
       alt={alt}
       className={className}
-      onError={() => setError(true)}
+      loading="lazy"
     />
   );
 };

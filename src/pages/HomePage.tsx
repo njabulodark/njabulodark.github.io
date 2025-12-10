@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Target, Music, Dumbbell } from 'lucide-react';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 
 // --- Components ---
@@ -66,7 +67,7 @@ const HomePage: React.FC = () => {
       <section className="relative h-96 md:h-[590px] flex items-center">
         {/* Background image - replace src with your image path */}
         <div className="absolute inset-0 overflow-hidden">
-          <img
+          <ResponsiveImage
             src="/images/homepage/sacred.jpg"
             alt="Sacred Heart Secondary School"
             className="w-full h-full object-cover object-center"
@@ -199,7 +200,7 @@ const HomePage: React.FC = () => {
               {/* LEFT COLUMN: Image & Name */}
               <div className="flex flex-col items-center flex-shrink-0">
                 <div className="bg-gray-200 border-2 border-dashed rounded-xl w-72 h-72 flex items-center justify-center overflow-hidden shadow-sm">
-                  <img
+                  <ResponsiveImage
                     src="/images/homepage/principal.jpg"
                     alt="Mrs SP Hlongwa, Principal"
                     className="w-full h-full object-cover"
@@ -243,10 +244,11 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-[#f6f7fd] rounded-lg overflow-hidden shadow-md">
               <div className="bg-gray-200 border-2 border-dashed w-full h-48 flex items-center justify-center">
-                <img
+                <ResponsiveImage
                   src="/images/homepage/computerlap.jpg"
                   alt="Computer Application Technology"
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="p-6">
