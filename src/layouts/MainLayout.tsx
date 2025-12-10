@@ -35,7 +35,7 @@ const MainLayout: React.FC<MainLayoutProps> = () => {
     },
     { name: 'Academics', path: '/academics' },
     { name: 'Activities', path: '/activities' },
-    { name: 'Sports', path: '#' },
+    { name: 'Sports', path: '/sports' },
     { name: 'Admissions', path: '/admissions' },
     { name: 'Events', path: '/events' },
     { name: 'Contact', path: '/contact' },

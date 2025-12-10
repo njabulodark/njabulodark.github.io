@@ -1,5 +1,6 @@
 import React from 'react';
-import { Download } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Download, FileText } from 'lucide-react';
 
 const AdmissionsPage: React.FC = () => {
   return (
@@ -43,13 +44,22 @@ const AdmissionsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="mt-8">
-            <a
-              href="#"
+          <div className="mt-8 flex flex-wrap gap-4">
+            <Link
+              to="/apply"
               className="inline-flex items-center bg-[#4747d7] hover:bg-[#3a3ac5] text-white font-medium py-3 px-6 rounded-md transition duration-300"
             >
+              <FileText className="w-5 h-5 mr-2" />
+              Apply Online
+            </Link>
+            <a
+              href="/files/SHS-APPLICATION-FORM.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-white border-2 border-[#4747d7] hover:bg-[#f0f0ff] text-[#4747d7] font-medium py-3 px-6 rounded-md transition duration-300"
+            >
               <Download className="w-5 h-5 mr-2" />
-              Download Prospectus
+              Download Form (PDF)
             </a>
           </div>
         </div>

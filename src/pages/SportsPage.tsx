@@ -1,18 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Star } from 'lucide-react';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const SportsPage: React.FC = () => {
   return (
     <div className="bg-white min-h-screen">
-      {/* Page Title / Header */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#26262c] text-center">Sports</h1>
+      {/* Hero Section */}
+      <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center bg-blue-950 text-white overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px] animate-pulse"></div>
+          <div className="absolute bottom-[-10%] right-[-5%] w-[400px] h-[400px] bg-indigo-500/20 rounded-full blur-[80px]"></div>
+          <div className="absolute top-[20%] right-[20%] w-4 h-4 bg-yellow-400 rounded-full blur-[1px] opacity-60"></div>
+          <div className="absolute bottom-[30%] left-[10%] w-3 h-3 bg-blue-300 rounded-full blur-[1px] opacity-40"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-6 max-w-5xl text-center">
+          <div className="flex justify-center mb-8">
+            <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-blue-100 text-xs font-bold uppercase tracking-widest shadow-lg">
+              <Star size={14} className="text-yellow-400 fill-yellow-400" />
+              Sports in Training
+            </div>
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight tracking-tight text-white drop-shadow-lg">
+            Unleashing <span className="italic font-light text-blue-300">Potential</span>
+          </h1>
+
+          <p className="max-w-2xl mx-auto text-blue-100/90 text-lg md:text-xl leading-relaxed font-light">
+            Beyond the classroom, our sports programs build character, resilience, and teamwork.
+            We are dedicated to fostering athletic excellence and a lifelong passion for health and fitness in every student.
+          </p>
         </div>
       </section>
 
       {/* Intro Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white" >
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -43,7 +67,7 @@ const SportsPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center">
-                <span className="text-gray-500">Screenshot_20240501_065835_Gallery-1-1.jpg</span>
+                <ResponsiveImage src="/images/sports/pic1.jpg" alt="Soccer" loading='lazy' className="w-full h-full object-cover object-top" />
               </div>
             </div>
             <div>
@@ -85,7 +109,12 @@ const SportsPage: React.FC = () => {
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6">
             {[...Array(8)].map((_, index) => (
               <div key={index} className="bg-gray-200 border-2 border-dashed rounded-lg w-full h-48 flex items-center justify-center">
-                <span className="text-gray-500 text-sm">Sport Image {index + 1}</span>
+                {/* <span className="text-gray-500 text-sm">Sport Image {index + 1}</span> */}
+                <ResponsiveImage
+                  src={`/images/sports/pic${index + 1}.jpg`}
+                  alt={`Sport Image ${index + 1}`}
+                  className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
             ))}
           </div>
@@ -106,7 +135,7 @@ const SportsPage: React.FC = () => {
             </div>
             <div>
               <div className="bg-gray-200 border-2 border-dashed rounded-xl w-full h-96 flex items-center justify-center">
-                <span className="text-gray-500">IMG_6859...jpg</span>
+                <ResponsiveImage src="/images/sports/swimming.jpg" alt="Swimming" loading='lazy' className="w-full h-full object-cover object-top" />
               </div>
             </div>
           </div>
@@ -121,9 +150,6 @@ const SportsPage: React.FC = () => {
               ❝
             </div>
             <div className="text-center">
-              <div className="bg-gray-200 border-2 border-dashed rounded-full w-24 h-24 mx-auto mb-4 flex items-center justify-center">
-                <span className="text-gray-500 text-xs">coach-150x150.jpg</span>
-              </div>
               <blockquote className="text-lg md:text-xl font-serif italic text-[#26262c]">
                 "Through sports, our students learn valuable life skills like perseverance, communication,
                 and sportsmanship, preparing them for success in all aspects of life."
