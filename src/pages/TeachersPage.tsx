@@ -89,8 +89,38 @@ const TeachersPage = () => {
         </div>
       </section>
 
-      {/* Deputy Principal Section */}
+      {/* Principal Section */}
       <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-100 to-indigo-100 rounded-2xl transform -rotate-2 transition-transform group-hover:-rotate-1"></div>
+              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-xl bg-white">
+                <ProfileImage src="images/teachers/principal.jpg" alt="Principal" className="w-full h-full object-cover object-top" />
+              </div>
+            </div>
+            <div>
+              <div className="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-blue-600 uppercase bg-blue-50 rounded-full">
+                School Leadership
+              </div>
+              <h3 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Principal</h3>
+              <div className="prose prose-lg text-slate-600 mb-6 leading-relaxed">
+                <p>
+                  Our dedicated Principal leads Sacred Heart Secondary School with vision, integrity, and a deep commitment to educational excellence.
+                  Under their guidance, our school continues to thrive as a nurturing environment for academic and personal growth.
+                </p>
+                <p>
+                  With years of experience in education, our Principal champions innovation, inclusivity, and the holistic development of every learner.
+                  Their leadership inspires both staff and students to reach their full potential.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Deputy Principal Section */}
+      <section className="py-20 bg-blue-50/50">
         <div className="container mx-auto px-6 sm:px-8 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="order-2 lg:order-1">
